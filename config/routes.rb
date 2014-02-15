@@ -1,4 +1,12 @@
 InOutBoard::Application.routes.draw do
+  resources :status_selects
+
+  resources :employees
+
+  resources :statuses
+
+  resources :offices
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

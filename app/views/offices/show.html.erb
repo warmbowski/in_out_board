@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Office name:</strong>
+  <%= @office.office_name %>
+</p>
+
+<p>
+  <strong>Geoinfo:</strong>
+  <%= @office.geoinfo %>
+</p>
+
+<p>
+  <strong>Geofence:</strong>
+  <%= @office.geofence %>
+</p>
+
+<%= link_to 'Edit', edit_office_path(@office) %> |
+<%= link_to 'Back', offices_path %>

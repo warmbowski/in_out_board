@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @status_select.status %>
+</p>
+
+<p>
+  <strong>Status type:</strong>
+  <%= @status_select.status_type %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @status_select.icon %>
+</p>
+
+<%= link_to 'Edit', edit_status_select_path(@status_select) %> |
+<%= link_to 'Back', status_selects_path %>

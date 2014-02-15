@@ -1,0 +1,31 @@
+<h1>Listing status_selects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Status type</th>
+      <th>Icon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_selects.each do |status_select| %>
+      <tr>
+        <td><%= status_select.status %></td>
+        <td><%= status_select.status_type %></td>
+        <td><%= status_select.icon %></td>
+        <td><%= link_to 'Show', status_select %></td>
+        <td><%= link_to 'Edit', edit_status_select_path(status_select) %></td>
+        <td><%= link_to 'Destroy', status_select, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Status select', new_status_select_path %>

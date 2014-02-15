@@ -1,0 +1,29 @@
+<%= form_for(@status_select) do |f| %>
+  <% if @status_select.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status_select.errors.count, "error") %> prohibited this status_select from being saved:</h2>
+
+      <ul>
+      <% @status_select.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :status_type %><br>
+    <%= f.text_field :status_type %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.number_field :icon %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

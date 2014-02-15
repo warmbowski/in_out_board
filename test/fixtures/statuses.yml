@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_out: false
+  on_off: false
+  status_select_id: 1
+  current_location: MyString
+  return: 2014-02-15 14:49:28
+  employee_id: 1
+
+two:
+  in_out: false
+  on_off: false
+  status_select_id: 1
+  current_location: MyString
+  return: 2014-02-15 14:49:28
+  employee_id: 1

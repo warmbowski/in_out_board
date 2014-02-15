@@ -1,0 +1,37 @@
+<h1>Listing statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>In out</th>
+      <th>On off</th>
+      <th>Status select</th>
+      <th>Current location</th>
+      <th>Return</th>
+      <th>Employee</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= status.in_out %></td>
+        <td><%= status.on_off %></td>
+        <td><%= status.status_select_id %></td>
+        <td><%= status.current_location %></td>
+        <td><%= status.return %></td>
+        <td><%= status.employee_id %></td>
+        <td><%= link_to 'Show', status %></td>
+        <td><%= link_to 'Edit', edit_status_path(status) %></td>
+        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Status', new_status_path %>
