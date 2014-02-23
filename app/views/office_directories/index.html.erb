@@ -1,0 +1,27 @@
+<h1>Directories by Precinct</h1>
+
+<p>
+	<h3>NYC Precinct</h3>
+	<ul>
+<% @nyc_full_names.each do |name| %>
+	<li>
+		<% name.each do |first_last|%>
+		<%= first_last %>
+		<% end %>
+	</li>
+<% end %>
+	</ul>
+</p>
+
+<p>
+	<h3>Seattle Precinct</h3>
+	<ul>
+<% @seattle_full_names.each do |name| %>
+	<li>
+		<% name.each do |first_last|%>
+		<%= first_last %>
+		<% end %>
+	</li>
+<% end %>
+	</ul>
+</p>
