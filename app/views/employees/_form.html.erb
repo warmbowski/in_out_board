@@ -25,7 +25,8 @@
   </div>
   <div class="field">
     <%= f.label :default_office_id %><br>
-    <%= f.number_field :default_office_id %>
+	<%= f.collection_select :default_office_id, Office.all, :id, :office_name %>
+    <!-- <%= f.number_field :default_office_id %>  -->
   </div>
   <div class="field">
     <%= f.label :title %><br>
