@@ -7,6 +7,7 @@
       <th>Last name</th>
       <th>Email</th>
       <th>Default office</th>
+	  <th>Title</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,6 +21,7 @@
         <td><%= employee.last_name %></td>
         <td><%= employee.email %></td>
         <td><%= employee.default_office_id %></td>
+		<td><%= employee.title %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

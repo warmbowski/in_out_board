@@ -20,5 +20,10 @@
   <%= @employee.default_office_id %>
 </p>
 
+<p>
+  <strong>Title:</strong>
+  <%= @employee.title %>
+</p>
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
