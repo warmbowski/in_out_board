@@ -20,7 +20,7 @@
   <div class="control-group">
     <%= f.label :default_office_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :default_office_id, :class => 'text_field' %>
+      <%= f.collection_select :default_office_id, Office.all, :id, :office_name, :class => 'collection_select' %>
     </div>
   </div>
   <div class="control-group">
