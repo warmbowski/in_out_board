@@ -1,29 +1,26 @@
-<%= form_for(@office) do |f| %>
-  <% if @office.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@office.errors.count, "error") %> prohibited this office from being saved:</h2>
-
-      <ul>
-      <% @office.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @office, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :office_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :office_name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :geoinfo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :geoinfo, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :geofence, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :geofence, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :office_name %><br>
-    <%= f.text_field :office_name %>
-  </div>
-  <div class="field">
-    <%= f.label :geoinfo %><br>
-    <%= f.text_field :geoinfo %>
-  </div>
-  <div class="field">
-    <%= f.label :geofence %><br>
-    <%= f.text_field :geofence %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                offices_path, :class => 'btn' %>
   </div>
 <% end %>
