@@ -2,11 +2,11 @@
 
 <p>
 	<h3>NYC Precinct</h3>
-	<ul>
+	<ul style="list-style-type: none;">
 <% @nyc_full_names.each do |name| %>
-	<li>
+	<li><i class="fa fa-user"></i>
 		<% name.each do |first_last|%>
-		<i class="fa-li fa fa-square"></i><%= first_last %>
+		<%= first_last %>
 		<% end %>
 	</li>
 <% end %>
@@ -15,11 +15,11 @@
 
 <p>
 	<h3>Seattle Precinct</h3>
-	<ul>
+	<ul style="list-style-type: none;">
 <% @seattle_full_names.each do |name| %>
-	<li>
+	<li><i class="fa fa-user"></i>
 		<% name.each do |first_last|%>
-		<i class="fa-li fa fa-square"></i><%= first_last %>
+		<%= first_last %>
 		<% end %>
 	</li>
 <% end %>
