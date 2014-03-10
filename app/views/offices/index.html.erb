@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th></th>
       <th><%= model_class.human_attribute_name(:office_name) %></th>
       <th><%= model_class.human_attribute_name(:geoinfo) %></th>
       <th><%= model_class.human_attribute_name(:geofence) %></th>
@@ -16,7 +16,10 @@
   <tbody>
     <% @offices.each do |office| %>
       <tr>
-        <td><%= link_to office.id, office_path(office) %></td>
+        <td><%= link_to office_path(office) do %>
+			<i class="bgsmcircle fa fa-arrow-right" align="center"></i>
+			<% end %>
+		</td>
         <td><%= office.office_name %></td>
         <td><%= office.geoinfo %></td>
         <td><%= office.geofence %></td>
