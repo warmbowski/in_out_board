@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th></th>
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
@@ -18,7 +18,10 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= link_to employee.id, employee_path(employee) %></td>
+        <td><%= link_to employee_path(employee) do %>
+			<i class="bgsmcircle fa fa-arrow-right" align="center"></i>
+			<% end %>
+		</td>
         <td><%= employee.first_name %></td>
         <td><%= employee.last_name %></td>
         <td><%= employee.email %></td>

@@ -12,3 +12,18 @@
  *= require_tree .
  *= require font-awesome
  */
+.bglogocircle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: mediumturquoise;
+    border: 1px solid black;
+}
+
+.bgsmcircle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: mediumturquoise;
+    border: 1px solid black;
+}
