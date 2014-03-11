@@ -1,37 +1,46 @@
-<h1>Listing statuses</h1>
-
-<table>
+<%- model_class = Status -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>In out</th>
-      <th>On off</th>
-      <th>Status select</th>
-      <th>Current location</th>
-      <th>Return</th>
-      <th>Employee</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:in_out) %></th>
+      <th><%= model_class.human_attribute_name(:on_off) %></th>
+      <th><%= model_class.human_attribute_name(:status_select_id) %></th>
+      <th><%= model_class.human_attribute_name(:current_location) %></th>
+      <th><%= model_class.human_attribute_name(:return) %></th>
+      <th><%= model_class.human_attribute_name(:employee_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @statuses.each do |status| %>
       <tr>
+        <td><%= link_to status.id, status_path(status) %></td>
         <td><%= status.in_out %></td>
         <td><%= status.on_off %></td>
         <td><%= status.status_select_id %></td>
         <td><%= status.current_location %></td>
         <td><%= status.return %></td>
         <td><%= status.employee_id %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l status.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_status_path(status), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      status_path(status),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Status', new_status_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_status_path,
+            :class => 'btn btn-primary' %>

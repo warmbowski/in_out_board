@@ -1,34 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Status -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>In out:</strong>
-  <%= @status.in_out %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:in_out) %>:</strong></dt>
+  <dd><%= @status.in_out %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:on_off) %>:</strong></dt>
+  <dd><%= @status.on_off %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status_select_id) %>:</strong></dt>
+  <dd><%= @status.status_select_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:current_location) %>:</strong></dt>
+  <dd><%= @status.current_location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:return) %>:</strong></dt>
+  <dd><%= @status.return %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:employee_id) %>:</strong></dt>
+  <dd><%= @status.employee_id %></dd>
+</dl>
 
-<p>
-  <strong>On off:</strong>
-  <%= @status.on_off %>
-</p>
-
-<p>
-  <strong>Status select:</strong>
-  <%= @status.status_select_id %>
-</p>
-
-<p>
-  <strong>Current location:</strong>
-  <%= @status.current_location %>
-</p>
-
-<p>
-  <strong>Return:</strong>
-  <%= @status.return %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @status.employee_id %>
-</p>
-
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              statuses_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_status_path(@status), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              status_path(@status),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

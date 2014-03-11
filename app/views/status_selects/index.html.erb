@@ -1,31 +1,40 @@
-<h1>Listing status_selects</h1>
-
-<table>
+<%- model_class = StatusSelect -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Status</th>
-      <th>Status type</th>
-      <th>Icon</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:status_type) %></th>
+      <th><%= model_class.human_attribute_name(:icon) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @status_selects.each do |status_select| %>
       <tr>
+        <td><%= link_to status_select.id, status_select_path(status_select) %></td>
         <td><%= status_select.status %></td>
         <td><%= status_select.status_type %></td>
         <td><%= status_select.icon %></td>
-        <td><%= link_to 'Show', status_select %></td>
-        <td><%= link_to 'Edit', edit_status_select_path(status_select) %></td>
-        <td><%= link_to 'Destroy', status_select, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l status_select.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_status_select_path(status_select), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      status_select_path(status_select),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Status select', new_status_select_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_status_select_path,
+            :class => 'btn btn-primary' %>

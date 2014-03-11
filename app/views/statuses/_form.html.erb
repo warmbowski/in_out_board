@@ -1,41 +1,44 @@
-<%= form_for(@status) do |f| %>
-  <% if @status.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
-
-      <ul>
-      <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @status, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :in_out, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :in_out, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :on_off, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :on_off, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status_select_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status_select_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_location, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :return, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :return, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :employee_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :employee_id, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :in_out %><br>
-    <%= f.check_box :in_out %>
-  </div>
-  <div class="field">
-    <%= f.label :on_off %><br>
-    <%= f.check_box :on_off %>
-  </div>
-  <div class="field">
-    <%= f.label :status_select_id %><br>
-    <%= f.number_field :status_select_id %>
-  </div>
-  <div class="field">
-    <%= f.label :current_location %><br>
-    <%= f.text_field :current_location %>
-  </div>
-  <div class="field">
-    <%= f.label :return %><br>
-    <%= f.datetime_select :return %>
-  </div>
-  <div class="field">
-    <%= f.label :employee_id %><br>
-    <%= f.number_field :employee_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                statuses_path, :class => 'btn' %>
   </div>
 <% end %>

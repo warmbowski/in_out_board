@@ -1,27 +1,39 @@
-<h1>Directories by Precinct</h1>
 
-<p>
-	<h3>NYC Precinct</h3>
-	<ul style="list-style-type: none;">
-<% @nyc_full_names.each do |name| %>
-	<li><i class="bgsmcircle fa fa-user" align="center"></i>
-		<% name.each do |first_last|%>
-		<%= first_last %>
-		<% end %>
-	</li>
-<% end %>
-	</ul>
-</p>
+<!-- <h1>Locations:</h1> -->
 
-<p>
-	<h3>Seattle Precinct</h3>
-	<ul style="list-style-type: none;">
-<% @seattle_full_names.each do |name| %>
-	<li><i class="bgsmcircle fa fa-user" align="center"></i>
-		<% name.each do |first_last|%>
-		<%= first_last %>
+<% @all_offices.each do |office| %>
+<h3><%= office.geoinfo %> - <%= office.office_name %></h3>
+
+<div style="height: <%= ((office.employees.count) * 35) + 45 %>px" 
+	class="span4 list sortable" 
+	id="<%= office.id %>">
+	<ul><h5>In</h5>
+		<% office.employees.pluck(:title, :first_name, :last_name).each do |employee| %>
+		<li class="card ui-state-default">
+			<i class="bgsmcircle fa fa-user"></i>
+			<% employee.each do |first_last|%>
+			<%= first_last %>
+			<% end %>
+		</li>
 		<% end %>
-	</li>
-<% end %>
 	</ul>
-</p>
+</div>
+
+<div style="height: <%= ((office.employees.count) * 35) + 45 %>px" 
+	class="span4 list sortable" 
+	id="<%= office.id %>">
+	<ul><h5>Out</h5>
+		<% office.employees.pluck(:title, :first_name, :last_name).each do |employee| %>
+		<li class="card ui-state-default">
+			<i class="bgsmcircle fa fa-user"></i>
+			<% employee.each do |first_last|%>
+			<%= first_last %>
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+
+<% end %>
+
+

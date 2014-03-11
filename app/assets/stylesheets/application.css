@@ -18,12 +18,76 @@
     height: 50px;
     background: mediumturquoise;
     border: 1px solid black;
+    text-align:center;
 }
 
 .bgsmcircle {
-    border-radius: 50%;
+    cursor: pointer;
+	border-radius: 50%;
     width: 15px;
     height: 15px;
     background: mediumturquoise;
     border: 1px solid black;
+    text-align:center;
+}
+
+li {
+    list-style: none;
+    font-size: 16px;
+}
+
+li a {
+    float: right;
+    margin: 3px ;
+    font-size: 12px;
+}
+
+ul {
+    padding: 10px ;
+	list-style-type: none;
+}
+
+h2 {
+    font-size: 18px ;
+}
+
+.list {
+    width: 300px ;
+    float: left;
+    padding: 2px 8px ;
+    background-color: #ddd ;
+    margin: 10px ;
+    border: 1px solid #666 ;
+    border-radius: 7px ;
+}
+
+.card {
+    cursor: grab;
+	cursor: moz-grab;
+	cursor: -webkit-grab;
+    border-radius: 3px ;
+    border: 0px solid #666 ;
+    margin: 5px ;
+    padding: 5px ;
+    word-wrap: break-word;
+    background-color: white;
+}
+
+.card:hover {
+    -webkit-transform:rotate(2deg);
+    -o-transform:rotate(2deg);
+    -ms-transform:rotate(2deg);
+    -moz-transform:rotate(2deg);
+    transform:rotate(2deg);
+}
+
+.ui-state-highlight {
+    width: 300px ;
+    height: 300px ;
+    float: left;
+    padding: 2px 8px ;
+    background-color: #999 ;
+    margin: 10px ;
+    border: 1px solid #666 ;
+    border-radius: 7px ;
 }
