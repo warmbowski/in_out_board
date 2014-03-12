@@ -19,6 +19,7 @@
     background: mediumturquoise;
     border: 1px solid black;
     text-align:center;
+	color: black;
 }
 
 .bgsmcircle {
@@ -29,6 +30,7 @@
     background: mediumturquoise;
     border: 1px solid black;
     text-align:center;
+	color: black;
 }
 
 li {
@@ -52,9 +54,9 @@ h2 {
 }
 
 .list {
-    width: 300px ;
+    width: 45% ;
     float: left;
-    padding: 2px 8px ;
+    padding: 2px 5px ;
     background-color: #ddd ;
     margin: 10px ;
     border: 1px solid #666 ;
@@ -70,7 +72,6 @@ h2 {
     margin: 5px ;
     padding: 5px ;
     word-wrap: break-word;
-    background-color: white;
 }
 
 .card:hover {
@@ -90,4 +91,14 @@ h2 {
     margin: 10px ;
     border: 1px solid #666 ;
     border-radius: 7px ;
+}
+
+.employee-working {
+	background-color: lightgreen;
+	color: black;
+}
+
+.employee-not-working {
+	background-color: lightblue;
+	color: grey;
 }

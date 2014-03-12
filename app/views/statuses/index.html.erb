@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th></th>
       <th><%= model_class.human_attribute_name(:in_out) %></th>
       <th><%= model_class.human_attribute_name(:on_off) %></th>
       <th><%= model_class.human_attribute_name(:status_select_id) %></th>
@@ -19,13 +19,16 @@
   <tbody>
     <% @statuses.each do |status| %>
       <tr>
-        <td><%= link_to status.id, status_path(status) %></td>
+        <td><%= link_to status_path(status) do %>
+  			<i class="bgsmcircle fa fa-arrow-right"></i>
+  			<% end %>
+  		</td>
         <td><%= status.in_out %></td>
         <td><%= status.on_off %></td>
         <td><%= status.status_select_id %></td>
         <td><%= status.current_location %></td>
         <td><%= status.return %></td>
-        <td><%= status.employee_id %></td>
+        <td><%= status.employee.first_name %></td>
         <td><%=l status.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

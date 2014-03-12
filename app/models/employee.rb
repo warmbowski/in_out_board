@@ -11,5 +11,8 @@ class Employee < ActiveRecord::Base
     where(default_office_id: '2')
   end
   
+  def title_first_last
+    "#{title} #{first_name} #{last_name}"
+  end
   
 end

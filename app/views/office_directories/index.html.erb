@@ -1,39 +1,55 @@
 
 <!-- <h1>Locations:</h1> -->
 
+<!-- setting up in/out lists for each office location -->
 <% @all_offices.each do |office| %>
+<% max_list_height = ((office.employees.count) * 35) + 45 %>
+<div class="row">
 <h3><%= office.geoinfo %> - <%= office.office_name %></h3>
 
-<div style="height: <%= ((office.employees.count) * 35) + 45 %>px" 
-	class="span4 list sortable" 
+<!-- in card -->
+
+<div style="height: <%= max_list_height %>px" 
+	class="list sortable" 
 	id="<%= office.id %>">
-	<ul><h5>In</h5>
-		<% office.employees.pluck(:title, :first_name, :last_name).each do |employee| %>
-		<li class="card ui-state-default">
-			<i class="bgsmcircle fa fa-user"></i>
-			<% employee.each do |first_last|%>
-			<%= first_last %>
+	<ul><h5>In the Office</h5>
+		<% office.employees.each do |employee| %>
+			<% if employee.statuses.last %> <!-- Check to see if a status record exists -->
+			<% if employee.statuses.last.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
+			<li class="card ui-state-default employee-working">
+				<i class="bgsmcircle fa fa-user"></i>
+				<%= employee.title_first_last %>
+			</li>
 			<% end %>
-		</li>
+			<% end %>
 		<% end %>
 	</ul>
 </div>
 
-<div style="height: <%= ((office.employees.count) * 35) + 45 %>px" 
-	class="span4 list sortable" 
+<!-- out card -->
+
+<div style="height: <%= max_list_height %>px" 
+	class="list sortable" 
 	id="<%= office.id %>">
-	<ul><h5>Out</h5>
-		<% office.employees.pluck(:title, :first_name, :last_name).each do |employee| %>
-		<li class="card ui-state-default">
-			<i class="bgsmcircle fa fa-user"></i>
-			<% employee.each do |first_last|%>
-			<%= first_last %>
+	<ul><h5>Out of the Office</h5>
+		<% office.employees.each do |employee| %>
+			<% unless employee.statuses.last %> <!-- Unless a status record exists... -->
+			<!-- ...create new Statuses record with in_out: false and on_off: false -->
+				<% employee.statuses.create(in_out: false, on_off: false) %>
 			<% end %>
-		</li>
+			<% unless employee.statuses.last.in_out == true %>
+			<% if employee.statuses.last.on_off == true %>
+			<li class="card ui-state-default employee-working">
+			<% else %>
+			<li class="card ui-state-default employee-not-working">
+			<% end %>
+				<i class="bgsmcircle fa fa-user"></i>
+				<%= employee.title_first_last %>
+			</li>
+			<% end %>
 		<% end %>
 	</ul>
 </div>
 
+</div>
 <% end %>
-
-
