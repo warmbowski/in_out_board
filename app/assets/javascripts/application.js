@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.draggable
+//= require jquery.ui.droppable
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .

@@ -11,12 +11,12 @@
 
 <div style="height: <%= max_list_height %>px" 
 	class="list sortable" 
-	id="<%= office.id %>">
+	id="office_in_<%= office.id %>">
 	<ul><h5>In the Office</h5>
 		<% office.employees.each do |employee| %>
 			<% if employee.statuses.last %> <!-- Check to see if a status record exists -->
 			<% if employee.statuses.last.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
-			<li class="card ui-state-default employee-working">
+			<li id="employee_<%= employee.id %>" class="card employee-working">
 				<i class="bgsmcircle fa fa-user"></i>
 				<%= employee.title_first_last %>
 			</li>
@@ -30,7 +30,7 @@
 
 <div style="height: <%= max_list_height %>px" 
 	class="list sortable" 
-	id="<%= office.id %>">
+	id="office_out_<%= office.id %>">
 	<ul><h5>Out of the Office</h5>
 		<% office.employees.each do |employee| %>
 			<% unless employee.statuses.last %> <!-- Unless a status record exists... -->
@@ -39,9 +39,9 @@
 			<% end %>
 			<% unless employee.statuses.last.in_out == true %>
 			<% if employee.statuses.last.on_off == true %>
-			<li class="card ui-state-default employee-working">
+			<li id="employee_<%= employee.id %>" class="card employee-working">
 			<% else %>
-			<li class="card ui-state-default employee-not-working">
+			<li id="employee_<%= employee.id %>" class="card employee-not-working">
 			<% end %>
 				<i class="bgsmcircle fa fa-user"></i>
 				<%= employee.title_first_last %>

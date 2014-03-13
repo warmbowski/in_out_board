@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  *= require font-awesome
+ *= require jquery.ui.all
+ *= require_tree .
  */
 .bglogocircle {
     border-radius: 50%;
@@ -73,7 +74,6 @@ h2 {
     padding: 5px ;
     word-wrap: break-word;
 }
-
 .card:hover {
     -webkit-transform:rotate(2deg);
     -o-transform:rotate(2deg);
