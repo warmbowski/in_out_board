@@ -13,6 +13,7 @@
  *= require jquery.ui.all
  *= require_tree .
  */
+
 .bglogocircle {
     border-radius: 50%;
     width: 50px;
@@ -46,7 +47,7 @@ li a {
 }
 
 ul {
-    padding: 10px ;
+	min-height: 50px;
 	list-style-type: none;
 }
 
@@ -54,14 +55,24 @@ h2 {
     font-size: 18px ;
 }
 
+.office{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
 .list {
-    width: 45% ;
+    width: 48% ;
     float: left;
-    padding: 2px 5px ;
+    padding: 2px 2px ;
     background-color: #ddd ;
-    margin: 10px ;
+    margin: 5px ;
     border: 1px solid #666 ;
     border-radius: 7px ;
+}
+
+.highlight-list {
+	background-color: yellow;
 }
 
 .card {
@@ -74,7 +85,7 @@ h2 {
     padding: 5px ;
     word-wrap: break-word;
 }
-.card:hover {
+.card-rotate {
     -webkit-transform:rotate(2deg);
     -o-transform:rotate(2deg);
     -ms-transform:rotate(2deg);
@@ -82,15 +93,13 @@ h2 {
     transform:rotate(2deg);
 }
 
-.ui-state-highlight {
-    width: 300px ;
-    height: 300px ;
-    float: left;
-    padding: 2px 8px ;
-    background-color: #999 ;
-    margin: 10px ;
-    border: 1px solid #666 ;
-    border-radius: 7px ;
+.card-placeholder{
+	height: 20px;
+	margin: 5px;
+	padding: 5px;
+	background-color: lightyellow;
+	border: 1px solid yellow;
+	border-radius: 3px;
 }
 
 .employee-working {

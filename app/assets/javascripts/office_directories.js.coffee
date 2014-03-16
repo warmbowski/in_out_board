@@ -2,4 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery -> $( ".card" ).draggable({ containment: ".span10", axis: "x", opacity: 0.5, zIndex: 100, snap: true });
+$ -> 
+	$( ".sortable" ).sortable
+		connectWith: ".sortable"
+		accept: "card"
+		container: "drag-boundary"
+		revert: "invalid"
+		placeholder: "card-placeholder"
+		start: ->
+			$(this).data().uiSortable.currentItem.addClass "card-rotate"
+		stop: ->
+			$(this).data().uiSortable.currentItem.removeClass "card-rotate"
