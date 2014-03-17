@@ -51,6 +51,11 @@ ul {
 	list-style-type: none;
 }
 
+ol {
+	min-height: 50px;
+	list-style-type: none;
+}
+
 h2 {
     font-size: 18px ;
 }
@@ -80,7 +85,7 @@ h2 {
 	cursor: moz-grab;
 	cursor: -webkit-grab;
     border-radius: 3px ;
-    border: 0px solid #666 ;
+    border: 1px solid #666 ;
     margin: 5px ;
     padding: 5px ;
     word-wrap: break-word;

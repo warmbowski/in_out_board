@@ -10,26 +10,26 @@
 <h3><%= office.geoinfo %> - <%= office.office_name %></h3>
 <div id="office_<%= office.id %>" class="office drag-boundary">
 <!-- in list -->
-<div style="overflow-y:scroll" class="list">
+<div class="list" style="overflow-y:auto">
 	<h5>In the Office</h5>
-	<ul class="in-the-office sortable" style="overflow-y:scroll">
+	<ol class="in-the-office sortable" style="overflow-y:auto">
 		<% office.employees.each do |employee| %>
 			<% if employee.statuses.last %> <!-- Check to see if a status record exists -->
 			<% if employee.statuses.last.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
 			<li id="employee_<%= employee.id %>" class="card employee-working">
 				<i class="bgsmcircle fa fa-user"></i>
-				<%= employee.title_first_last %>
+				<%= employee.title %> <%=employee.full_name%>
 			</li>
 			<% end %>
 			<% end %>
 		<% end %>
-	</ul>
+	</ol>
 </div>
 
 <!-- out list -->
-<div style="overflow-y:scroll" class="list">
+<div class="list" style="overflow-y:auto">
 	<h5>Out of the Office</h5>
-	<ul class="out-of-the-office sortable" style="overflow-y:scroll">
+	<ol class="out-of-the-office sortable" style="overflow-y:auto">
 		<% office.employees.each do |employee| %>
 			<% unless employee.statuses.last %> <!-- Unless a status record exists... -->
 			<!-- ...create new Statuses record with in_out: false and on_off: false -->
@@ -42,11 +42,11 @@
 			<li id="employee_<%= employee.id %>" class="card employee-not-working">
 			<% end %>
 				<i class="bgsmcircle fa fa-user"></i>
-				<%= employee.title_first_last %>
+				<%= employee.title %> <%=employee.full_name%>
 			</li>
 			<% end %>
 		<% end %>
-	</ul>
+	</ol>
 </div>
 
 </div>
