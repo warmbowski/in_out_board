@@ -10,6 +10,15 @@ $ ->
 		revert: "invalid"
 		placeholder: "card-placeholder"
 		start: ->
-			$(this).data().uiSortable.currentItem.addClass "card-rotate"
+			picked=$(this).data().uiSortable.currentItem
+			picked.addClass "card-rotate"
+			$(this).data('picked',picked.attr('id'))
+			console.log($(this).data().picked)
 		stop: ->
-			$(this).data().uiSortable.currentItem.removeClass "card-rotate"
+			picked.removeClass "card-rotate"
+			console.log($(this).data().picked)
+		receive: ->
+			
+			io=$(this).attr('id')
+			
+			console.log(io)

@@ -12,7 +12,7 @@
 <!-- in list -->
 <div class="list" style="overflow-y:auto">
 	<h5>In the Office</h5>
-	<ol class="in-the-office sortable" style="overflow-y:auto">
+	<ul id="in" class="in-the-office sortable" style="overflow-y:auto">
 		<% office.employees.each do |employee| %>
 			<% if employee.statuses.last %> <!-- Check to see if a status record exists -->
 			<% if employee.statuses.last.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
@@ -23,13 +23,13 @@
 			<% end %>
 			<% end %>
 		<% end %>
-	</ol>
+	</ul>
 </div>
 
 <!-- out list -->
 <div class="list" style="overflow-y:auto">
 	<h5>Out of the Office</h5>
-	<ol class="out-of-the-office sortable" style="overflow-y:auto">
+	<ul id="out" class="out-of-the-office sortable" style="overflow-y:auto">
 		<% office.employees.each do |employee| %>
 			<% unless employee.statuses.last %> <!-- Unless a status record exists... -->
 			<!-- ...create new Statuses record with in_out: false and on_off: false -->
@@ -46,7 +46,7 @@
 			</li>
 			<% end %>
 		<% end %>
-	</ol>
+	</ul>
 </div>
 
 </div>
