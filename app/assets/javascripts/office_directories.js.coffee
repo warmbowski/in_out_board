@@ -9,16 +9,28 @@ $ ->
 		container: "drag-boundary"
 		revert: "invalid"
 		placeholder: "card-placeholder"
+		opacity: "0.6"
 		start: ->
-			picked=$(this).data().uiSortable.currentItem
-			picked.addClass "card-rotate"
-			$(this).data('picked',picked.attr('id'))
-			console.log($(this).data().picked)
+			$(this).data().uiSortable.currentItem.addClass "card-rotate"
+			
 		stop: ->
-			picked.removeClass "card-rotate"
-			console.log($(this).data().picked)
-		receive: ->
+			$(this).data().uiSortable.currentItem.removeClass "card-rotate"
 			
-			io=$(this).attr('id')
-			
-			console.log(io)
+		receive: (e,ui) ->
+			if $(this).attr('id') == 'in_office'
+				in_office=true 
+				working=true
+			else
+				in_office=false
+				working=false
+			employee_id=ui.item.attr('id').replace /employee_/, ""
+			console.log(in_office, working, employee_id) 
+			$.ajax '/statuses.json',
+				type: 'POST'
+				data: { status: { in_out: in_office, on_off: working, employee_id: employee_id }}
+				dataType: 'json'
+				#contentType: 'application/json; charset=utf-8'
+				error: (err1, err2, err3) ->
+					console.log$(err1, err2, err3)
+				success: (succ1, succ2, succ3) ->
+					console.log$(succ1, succ2, succ3)
