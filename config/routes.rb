@@ -1,4 +1,5 @@
 InOutBoard::Application.routes.draw do
+  devise_for :employees
   resources :status_selects
 
   resources :employees
