@@ -40,11 +40,11 @@ li {
     font-size: 16px;
 }
 
-li a {
+/*li a {
     float: right;
     margin: 3px ;
     font-size: 12px;
-}
+}*/
 
 ul {
 	min-height: 50px;
@@ -68,7 +68,6 @@ h2 {
 
 .list {
     width: 48% ;
-    float: left;
     padding: 2px 2px ;
     background-color: #ddd ;
     margin: 5px ;
@@ -116,3 +115,12 @@ h2 {
 	background-color: lightblue;
 	color: grey;
 }
+
+.return-text{
+	font-size:8px;
+	text-align:right;
+	color:red;
+	}
+	
+.name-text{}
+		

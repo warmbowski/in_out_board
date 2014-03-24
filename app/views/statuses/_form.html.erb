@@ -2,13 +2,13 @@
   <div class="control-group">
     <%= f.label :in_out, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :in_out, :class => 'text_field' %>
+      <%= f.text_field :in_out, :class => 'text_field', :value => false %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :on_off, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :on_off, :class => 'text_field' %>
+      <%= f.text_field :on_off, :class => 'text_field', :value => false %>
     </div>
   </div>
   <div class="control-group">
@@ -26,13 +26,13 @@
   <div class="control-group">
     <%= f.label :return, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :return, :class => 'text_field' %>
+      <%= f.text_field :return, :class => 'text_field', :value => 1.day.from_now %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :employee_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :employee_id, :class => 'text_field' %>
+      <%= f.collection_select :employee_id, Employee.all, :id, :full_name, :class => 'collection_select' %>
     </div>
   </div>
 
