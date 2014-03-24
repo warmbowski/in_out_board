@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem 'devise'
+gem 'devise_invitable'
 
 gem 'momentjs-rails'
 

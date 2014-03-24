@@ -1,8 +1,8 @@
 <% if current_employee %>
   Logged in as <strong><%= current_employee.email %></strong>.
-  <%= link_to 'Edit profile', edit_employee_registration_path, :class => 'navbar-link' %> |
+  <%= link_to 'Invite', new_employee_invitation_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_employee_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_employee_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Request Invitation", accept_employee_invitation_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_employee_session_path, :class => 'navbar-link'  %>
 <% end %>
