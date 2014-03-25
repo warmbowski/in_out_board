@@ -116,10 +116,38 @@ h2 {
 	color: grey;
 }
 
-.return-text{
-	font-size:8px;
+a.return-text{
+	font-size:10px;
 	text-align:right;
-	color:red;
+	#color:blue;
+	}
+
+	a.tooltip {
+		position: absolute;
+		width: 40px;
+		height: 10px;
+		line-height: 10px;
+		padding: 10px;
+		font-size: 12px;
+		text-align: center;
+		color: rgb(0, 0, 255);
+		background: rgb(255, 255, 255);
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 5px;
+		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
+		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
+	}
+
+	a.tooltip:after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-width: 10px;
+		border-style: solid;
+		border-color: #FFFFFF transparent transparent transparent;
+		top: 34px;
+		left: 21px;
 	}
 	
 .name-text{}

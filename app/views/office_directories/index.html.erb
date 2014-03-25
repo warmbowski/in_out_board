@@ -19,7 +19,7 @@
 			<% if now.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
 			<li id="employee_<%= employee.id %>" class="card employee-working">
 				<i class="bgsmcircle fa fa-user"></i>
-				<%= employee.full_name%> (<%= employee.title %>)<br/>
+				<%=full_name_title(employee.full_name, employee.title) %><br/>
 				<div class="return-text">&nbsp;</div>
 			</li>
 			<% end %>
@@ -36,20 +36,20 @@
 			<% now = employee.statuses.last %>
 			<% unless now %> <!-- Unless a status record exists... -->
 			<!-- ...create new Statuses record with in_out: false and on_off: false -->
-				<% employee.statuses.create(in_out: false, on_off: false, return: 1.day.from_now) %>
+				<% employee.statuses.create(in_out: false, on_off: false, return: (Date.today + 1.day) + 8.hours) %>
 			<% end %>
 			<% unless now.in_out == true %>
 			<% if now.on_off == true %>
 			<li id="employee_<%= employee.id %>" class="card employee-working">
 				<i class="bgsmcircle fa fa-user"></i>
-				<%= employee.full_name%> (<%= employee.title %>)<br/>
-				<div class="return-text">Working remotely</div>
+				<%=full_name_title(employee.full_name, employee.title) %><br/>
+				<a class="return-text"><i class="fa fa-coffee"></i> Working remotely</a>
 			</li>
 			<% else %>
 			<li id="employee_<%= employee.id %>" class="card employee-not-working">
 				<i class="bgsmcircle fa fa-user"></i>
-				<%= employee.full_name%> (<%= employee.title %>)<br/>
-				<div class="return-text">Returning in <%= distance_of_time_in_words(now.return,Time.now) %></div>
+				<%=full_name_title(employee.full_name, employee.title) %><br/>
+					<a class='return-text' href='#' rel="tooltip" data-placement="right" title="Returning"><i class="fa fa-clock-o"></i> <%= distance_of_time_in_words(now.return,Time.now) %></a>
 			</li>
 			<% end %>
 			<% end %>

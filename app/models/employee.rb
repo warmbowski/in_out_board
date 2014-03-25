@@ -9,12 +9,9 @@ class Employee < ActiveRecord::Base
   
   validates_presence_of :first_name, :email
   
-  def self.nyc 
-    where(default_office_id: '1')
-  end
-  
-  def self.seattle
-    where(default_office_id: '2')
+  after_create :add_default_status
+  def add_default_status
+    self.statuses.create!(in_out: false, on_off: false, return: (Date.today + 1.day) + 8.hours)
   end
   
   def full_name
