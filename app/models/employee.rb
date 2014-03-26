@@ -7,7 +7,7 @@ class Employee < ActiveRecord::Base
   has_many :statuses
   belongs_to :office, foreign_key: 'default_office_id'
   
-  validates_presence_of :first_name, :email
+  validates_presence_of :email#, :first_name
   
   after_create :add_default_status
   before_destroy :remove_all_statuses
