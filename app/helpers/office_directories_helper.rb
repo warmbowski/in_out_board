@@ -13,9 +13,25 @@ module OfficeDirectoriesHelper
     end
   end
   
-  
-  # def returning_language(return)
-  #   distance_of_time_in_words(return,Time.now)
-  # end
+  def choose_random_idiom
+    work_idiom = ["on duty",
+      "the doctor is in",
+      "getting down to brass tacks",
+      "hanging in there",
+      "nose to the grindstone",
+      "busy as a bee",
+      "firing on all cylinders",
+      "carrying on",
+      "burning the midnight oil",
+      "burning the candle at both ends",
+      "all systems are go",
+      "going the extra mile",
+      "pulling their weight",
+      "buckling down",
+      "workining my tail off",
+      "rolling up my sleeves"]
+      return work_idiom.sample
+  end
+    
   
 end

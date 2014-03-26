@@ -18,7 +18,7 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background: mediumturquoise;
+    background: lightgreen;
     border: 1px solid black;
     text-align:center;
 	color: black;
@@ -29,7 +29,7 @@
 	border-radius: 50%;
     width: 15px;
     height: 15px;
-    background: mediumturquoise;
+    background: lightgreen;
     border: 1px solid black;
     text-align:center;
 	color: black;
@@ -69,9 +69,9 @@ h2 {
 .list {
     width: 48% ;
     padding: 2px 2px ;
-    background-color: #ddd ;
-    margin: 5px ;
-    border: 1px solid #666 ;
+    background-color: #E7E3BF ;
+    margin: 0px 0px 15px 0px ;
+    border: 0px solid #666 ;
     border-radius: 7px ;
 }
 
@@ -98,7 +98,7 @@ h2 {
 }
 
 .card-placeholder{
-	height: 20px;
+	height: 40px;
 	margin: 5px;
 	padding: 5px;
 	background-color: lightyellow;
@@ -107,48 +107,39 @@ h2 {
 }
 
 .employee-working {
-	background-color: lightgreen;
+	background-color: #C0D3BE;
 	color: black;
 }
 
 .employee-not-working {
-	background-color: lightblue;
+	background-color: #CB9992;
 	color: grey;
 }
 
 a.return-text{
 	font-size:10px;
 	text-align:right;
-	#color:blue;
+	color:blue;
 	}
 
-	a.tooltip {
-		position: absolute;
-		width: 40px;
-		height: 10px;
-		line-height: 10px;
-		padding: 10px;
-		font-size: 12px;
-		text-align: center;
-		color: rgb(0, 0, 255);
-		background: rgb(255, 255, 255);
-		border: 4px solid rgb(255, 255, 255);
-		border-radius: 5px;
-		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
-		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-	}
+.office-name{
+    border-radius: 3px ;
+    border: 1px solid #666 ;
+	margin: 10px 0px 0px 0px;
+	color: #E7E3BF;
+	background-color: #6E5B5E;
+}
 
-	a.tooltip:after {
-		content: "";
-		position: absolute;
-		width: 0;
-		height: 0;
-		border-width: 10px;
-		border-style: solid;
-		border-color: #FFFFFF transparent transparent transparent;
-		top: 34px;
-		left: 21px;
-	}
-	
-.name-text{}
-		
+.rotate-text-90 {
+    -webkit-transform-origin: 0% 50%;
+    -webkit-transform: rotate(-90deg) translate(-10%, 50%);
+    -moz-transform-origin: 0 50%;
+    -moz-transform: rotate(-90deg) translate(-10%, 50%);
+    -ms-transform-origin: 0 50%;
+    -ms-transform: rotate(-90deg) translate(-10%, 50%);
+    -o-transform-origin: 0 50%;
+    -o-transform: rotate(-90deg) translate(-10%, 50%);
+    transform-origin: 0 50%;
+    transform: rotate(-90deg) translate(-10%, 50%);
+    left: 0;
+}

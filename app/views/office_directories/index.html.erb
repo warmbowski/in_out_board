@@ -3,59 +3,65 @@
 
 <!-- setting up in/out lists for each office location -->
 <% @all_offices.each do |office| %>
-<% max_list_height = ((office.employees.count) * 35)%>
 
-
-
-<h3 style="clear:both"><%= office.geoinfo %> - <%= office.office_name %></h3>
+<h3 class="office-name" style="clear:both"><%= office.geoinfo %> - <%= office.office_name %></h3>
 <div id="office_<%= office.id %>" class="office drag-boundary">
-<!-- in list -->
-<div class="list" style="float:left">
-	<h5>In the Office</h5>
-	<ul id="in_office" class="in-the-office sortable" style="overflow-y:auto">
-		<% office.employees.each do |employee| %>
-			<% now = employee.statuses.last %>
-			<% if now %> <!-- Check to see if a status record exists -->
-			<% if now.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
-			<li id="employee_<%= employee.id %>" class="card employee-working">
-				<i class="bgsmcircle fa fa-user"></i>
-				<%=full_name_title(employee.full_name, employee.title) %><br/>
-				<div class="return-text">&nbsp;</div>
-			</li>
+	<!-- in list -->
+	<div class="list" style="float:left">
+		<h4 class="rotate-text-0" >&nbsp;In</h4>
+		<ul id="in_office" class="in-the-office sortable" style="overflow-y:auto">
+			<% office.employees.each do |employee| %>
+				<% now = employee.statuses.last %>
+				<% if now %> <!-- Check to see if a status record exists -->
+					<% if now.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
+						<li id="employee_<%= employee.id %>" class="card employee-working">
+							<%= link_to employee_path(employee) do %>
+								<i class="bgsmcircle fa fa-user"></i>
+							<% end %>
+							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<a class="return-text"><i class="fa fa-coffee"></i> <%= choose_random_idiom %></a>
+						</li>
+					<% end %>
+				<% end %>
 			<% end %>
+		</ul>
+	</div>
+
+	<!-- out list -->
+	<div class="list" style="float:right">
+		<h4 class="rotate-text-0">&nbsp;Out</h4>
+		<ul id="out_office" class="out-of-the-office sortable" style="overflow-y:auto">
+			<% office.employees.each do |employee| %>
+				<% now = employee.statuses.last %>
+				<% unless now %> <!-- Unless a status record exists... -->
+				<!-- ...create new Statuses record with in_out: false and on_off: false -->
+					<% employee.statuses.create(in_out: false, on_off: false, return: (Date.today + 1.day) + 8.hours) %>
+				<% end %>
+				<% unless now.in_out == true %>
+					<% if now.on_off == true %>
+						<li id="employee_<%= employee.id %>" class="card employee-working">
+							<%= link_to employee_path(employee) do %>
+								<i class="bgsmcircle fa fa-user"></i>
+							<% end %>
+							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<a class="return-text"><i class="fa fa-coffee"></i> Working remotely</a>
+						</li>
+					<% else %>
+						<li id="employee_<%= employee.id %>" class="card employee-not-working">
+							<%= link_to employee_path(employee) do %>
+								<i class="bgsmcircle fa fa-user"></i>
+							<% end %>
+							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<a id='return-select' class='return-text' rel="tooltip" data-placement="right" title="<%= now.return.in_time_zone("Pacific Time (US & Canada)").to_formatted_s(:short) %>">
+								<i class="fa fa-clock-o"></i> <%= distance_of_time_in_words(now.return,Time.now) %>
+							</a>
+							<input type="hidden" id="dp" />
+						</li>
+					<% end %>
+				<% end %>
 			<% end %>
-		<% end %>
-	</ul>
+		</ul>
+	</div>
 </div>
 
-<!-- out list -->
-<div class="list" style="float:right">
-	<h5>Out of the Office</h5>
-	<ul id="out_office" class="out-of-the-office sortable" style="overflow-y:auto">
-		<% office.employees.each do |employee| %>
-			<% now = employee.statuses.last %>
-			<% unless now %> <!-- Unless a status record exists... -->
-			<!-- ...create new Statuses record with in_out: false and on_off: false -->
-				<% employee.statuses.create(in_out: false, on_off: false, return: (Date.today + 1.day) + 8.hours) %>
-			<% end %>
-			<% unless now.in_out == true %>
-			<% if now.on_off == true %>
-			<li id="employee_<%= employee.id %>" class="card employee-working">
-				<i class="bgsmcircle fa fa-user"></i>
-				<%=full_name_title(employee.full_name, employee.title) %><br/>
-				<a class="return-text"><i class="fa fa-coffee"></i> Working remotely</a>
-			</li>
-			<% else %>
-			<li id="employee_<%= employee.id %>" class="card employee-not-working">
-				<i class="bgsmcircle fa fa-user"></i>
-				<%=full_name_title(employee.full_name, employee.title) %><br/>
-					<a class='return-text' href='#' rel="tooltip" data-placement="right" title="Returning"><i class="fa fa-clock-o"></i> <%= distance_of_time_in_words(now.return,Time.now) %></a>
-			</li>
-			<% end %>
-			<% end %>
-		<% end %>
-	</ul>
-</div>
-
-</div>
 <% end %>
