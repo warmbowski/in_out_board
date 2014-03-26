@@ -8,6 +8,10 @@ gem 'devise_invitable'
 
 gem 'momentjs-rails'
 
+group :production do
+  gem 'pg'
+end
+
 group :test, :development do 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
