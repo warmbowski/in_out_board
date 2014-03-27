@@ -15,6 +15,8 @@
 //= require jquery.ui.draggable
 //= require jquery.ui.droppable
 //= require jquery.ui.sortable
+//= require jquery.ui.effect
+//= require jquery.ui.effect-highlight
 //= require moment
 //= require twitter/bootstrap
 //= require turbolinks

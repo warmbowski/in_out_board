@@ -53,7 +53,10 @@
 							<% end %>
 							<%=full_name_title(employee.full_name, employee.title) %><br/>
 							<a id='return-select' class='return-text' rel="tooltip" data-placement="right" title="<%= now.return.in_time_zone("Pacific Time (US & Canada)").to_formatted_s(:short) %>">
-								<i class="fa fa-clock-o"></i> <%= distance_of_time_in_words(now.return,Time.now) %>
+								<i class="fa fa-clock-o"></i> <%= distance_of_time_in_words_to_now(now.return) %>
+								<% if Time.now > now.return %>
+									 late
+								<%end%>
 							</a>
 						</li>
 					<% end %>

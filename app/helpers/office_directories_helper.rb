@@ -28,7 +28,7 @@ module OfficeDirectoriesHelper
       "going the extra mile",
       "pulling their weight",
       "buckling down",
-      "workining my tail off",
+      "working my tail off",
       "rolling up my sleeves"]
       return work_idiom.sample
   end

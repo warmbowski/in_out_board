@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ -> 
+	$('#employee_'+currentUser.id).effect('highlight','linear',2000)
+
 	$(".out-of-the-office").on "dblclick", ".card", ->
 		dclicked=$(this)
 		console.log(dclicked.attr('id'), '   ', dclicked.parents().eq(0).attr('id'), '   ', dclicked.children().eq(2).attr('id'))
