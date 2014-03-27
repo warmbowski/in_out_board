@@ -26,7 +26,7 @@ module OfficeDirectoriesHelper
       "burning the candle at both ends",
       "all systems are go",
       "going the extra mile",
-      "pulling their weight",
+      "pulling my weight",
       "buckling down",
       "working my tail off",
       "rolling up my sleeves"]
