@@ -3,6 +3,33 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ -> 
+	$(".out-of-the-office").on "dblclick", ".card", ->
+		dclicked=$(this)
+		console.log(dclicked.attr('id'), '   ', dclicked.parents().eq(0).attr('id'), '   ', dclicked.children().eq(2).attr('id'))
+		if dclicked.hasClass('employee-not-working')
+			dclicked.removeClass "employee-not-working"
+			dclicked.addClass "employee-working"
+			working=true
+			working_html="<i class='fa fa-coffee'></i> working remotely"
+		else
+			working=false
+			dclicked.removeClass "employee-working"
+			dclicked.addClass "employee-not-working"
+			working_html="<i class='fa fa-clock-o'></i> " + moment().startOf('day').hour(8).add('days',1).fromNow()
+		employee_id=dclicked.attr('id').replace /employee_/, ""
+		return_day=moment().startOf('day').hour(8).add('days',1).format()
+		$.ajax '/statuses.json',
+			type: 'POST'
+			dataType: 'json'
+			data: { status: { in_out: 'false', on_off: working, employee_id: employee_id, return: return_day }}
+			error: (jqXHR, status, err) ->
+				# console.log(jqXHR, status, err)
+			success: (data, status, jqXHR) ->
+				# console.log(data, status, jqXHR)
+				console.log(dclicked.attr('id'))
+				dclicked.children().eq(2).html(working_html)
+				# console.log($('.sortable').html(data))
+
 	$( ".sortable" ).sortable
 		connectWith: ".sortable"
 		accept: "card"
@@ -53,6 +80,7 @@ $ ->
 					# console.log(jqXHR, status, err)
 				success: (data, status, jqXHR) ->
 					# console.log(data, status, jqXHR)
+
 
 
 	# $("#dp").datepicker
