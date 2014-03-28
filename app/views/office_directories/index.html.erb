@@ -18,7 +18,7 @@
 							<%= link_to employee_path(employee) do %>
 								<i class="bgsmcircle fa fa-user"></i>
 							<% end %>
-							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class="return-text"><i class="fa fa-coffee"></i> <%= choose_random_idiom %></a>
 						</li>
 					<% end %>
@@ -43,7 +43,7 @@
 							<%= link_to employee_path(employee) do %>
 								<i class="bgsmcircle fa fa-user"></i>
 							<% end %>
-							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class="return-text"><i class="fa fa-coffee"></i> Working remotely</a>
 						</li>
 					<% else %>
@@ -51,7 +51,7 @@
 							<%= link_to employee_path(employee) do %>
 								<i class="bgsmcircle fa fa-user"></i>
 							<% end %>
-							<%=full_name_title(employee.full_name, employee.title) %><br/>
+							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class='return-text' rel="tooltip" data-placement="right" title="<%= now.return.in_time_zone("Pacific Time (US & Canada)").to_formatted_s(:short) %>">
 								<i class="fa fa-clock-o"></i> <%= distance_of_time_in_words_to_now(now.return) %>
 								<% if Time.now > now.return %>

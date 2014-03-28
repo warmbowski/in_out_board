@@ -5,12 +5,17 @@ module OfficeDirectoriesHelper
   end
   
   
-  def full_name_title (fullname, title)
-    if title
-      fullname + " - " + title
+  def full_name_title (fullname, title, email)
+    if fullname.blank?
+      fnt=email.to_s
     else
-      fullname
+      if title.blank?
+        fnt=fullname.to_s
+      else
+        fnt=fullname.to_s + " (" + title.to_s + ")"
+      end
     end
+    return fnt
   end
   
   def choose_random_idiom
