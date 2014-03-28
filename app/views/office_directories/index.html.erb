@@ -15,10 +15,8 @@
 				<% if now %> <!-- Check to see if a status record exists -->
 					<% if now.in_out == true %> <!-- Check to see if status.in_out record is set to 'true' -->
 						<li id="employee_<%= employee.id %>" class="card employee-working">
-							<%= link_to employee_path(employee) do %>
-								<i class="bgsmcircle fa fa-user"></i>
-							<% end %>
-							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
+							<i class="bgsmcircle fa fa-user"></i>
+							<%= full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class="return-text"><i class="fa fa-coffee"></i> <%= choose_random_idiom %></a>
 						</li>
 					<% end %>
@@ -40,18 +38,14 @@
 				<% unless now.in_out == true %>
 					<% if now.on_off == true %>
 						<li id="employee_<%= employee.id %>" class="card employee-working">
-							<%= link_to employee_path(employee) do %>
-								<i class="bgsmcircle fa fa-user"></i>
-							<% end %>
-							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
+							<i class="bgsmcircle fa fa-user"></i>
+							<%= full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class="return-text"><i class="fa fa-coffee"></i> Working remotely</a>
 						</li>
 					<% else %>
 						<li id="employee_<%= employee.id %>" class="card employee-not-working">
-							<%= link_to employee_path(employee) do %>
-								<i class="bgsmcircle fa fa-user"></i>
-							<% end %>
-							<%=full_name_title(employee.full_name, employee.title, employee.email) %><br/>
+							<i class="bgsmcircle fa fa-user"></i>
+							<%= full_name_title(employee.full_name, employee.title, employee.email) %><br/>
 							<a id='return-select' class='return-text' rel="tooltip" data-placement="right" title="<%= now.return.in_time_zone("Pacific Time (US & Canada)").to_formatted_s(:short) %>">
 								<i class="fa fa-clock-o"></i> <%= distance_of_time_in_words_to_now(now.return) %>
 								<% if Time.now > now.return %>
