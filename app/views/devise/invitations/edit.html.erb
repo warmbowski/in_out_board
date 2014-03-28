@@ -6,17 +6,20 @@
 
   <%= f.hidden_field :default_office_id, :value => Office.first.id %>
 
-  <div><%= f.label :first_name %><br />
+  <div><%= f.label :first_name %>
   <%= f.text_field :first_name %></div>
-
-  <div><%= f.label :last_name %><br />
+<br/>
+  <div><%= f.label :last_name %>
   <%= f.text_field :last_name %></div>
-
-  <div><%= f.label :password %><br />
+<br/>
+  <div><%= f.label :title %>
+  <%= f.text_field :title %></div>
+<br/>
+  <div><%= f.label :password %>
   <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
+<br/>
+  <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
-
+<br/>
   <div><%= f.submit t("devise.invitations.edit.submit_button") %></div>
 <% end %>
