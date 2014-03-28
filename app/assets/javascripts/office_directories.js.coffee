@@ -39,6 +39,10 @@ $ ->
 		revert: "invalid"
 		placeholder: "card-placeholder"
 		opacity: "0.6"
+		scroll: true
+		scrollSensitivity: 10
+		scrollSpeed: 20
+		helper: "original"
 		start: ->
 			$(this).data().uiSortable.currentItem.addClass "card-rotate"
 			
