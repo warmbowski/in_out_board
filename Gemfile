@@ -20,6 +20,10 @@ group :test, :development do
   gem 'capybara-rails'
 end
 
+group :development do
+  gem 'quiet_assets'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
