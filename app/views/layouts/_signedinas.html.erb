@@ -9,5 +9,7 @@
   <%= link_to "Login", new_employee_session_path, :class => 'navbar-link'  %> |
 <% end %>
 <br/><br/>
+<%= mail_to "warmbowski+tkqdp06d5gddiem0mdfv@boards.trello.com", "Email support", subject: "Starboard support submission", :class => 'navbar-link' %>
+<br/><br/>
 <h3 class="list" style="background-color: #C0150C; color: white; text-align: center; border: 1px solid black;"><%= Date.today.to_s(:short).upcase %></h3>
 
