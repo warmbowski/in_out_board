@@ -77,7 +77,8 @@ InOutBoard::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  
+
+  config.action_mailer.default_url_options = { :host => 'aqueous-garden-2789.herokuapp.com' }
   if ENV['MAILTRAP_HOST'].present?
     ActionMailer::Base.delivery_method = :smtp
     ActionMailer::Base.smtp_settings = {
