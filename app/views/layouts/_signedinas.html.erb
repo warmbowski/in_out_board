@@ -4,12 +4,12 @@
   <%= link_to "Edit", edit_employee_registration_path, :class => 'navbar-link'%> |
   <%= link_to "Invite", new_employee_invitation_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_employee_session_path, method: :delete, :class => 'navbar-link'  %> |
+  <br/><br/>
+  <%= mail_to "warmbowski+tkqdp06d5gddiem0mdfv@boards.trello.com", "Email support", subject: "Starboard support submission", :class => 'navbar-link' %>
 <% else %>
   <%= link_to "Request Invitation", accept_employee_invitation_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_employee_session_path, :class => 'navbar-link'  %> |
 <% end %>
-<br/><br/>
-<%= mail_to "warmbowski+tkqdp06d5gddiem0mdfv@boards.trello.com", "Email support", subject: "Starboard support submission", :class => 'navbar-link' %>
 <br/><br/>
 <h3 class="list" style="background-color: #C0150C; color: white; text-align: center; border: 1px solid black;"><%= Date.today.to_s(:short).upcase %></h3>
 
