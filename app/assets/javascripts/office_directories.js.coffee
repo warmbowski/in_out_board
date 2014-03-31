@@ -7,7 +7,10 @@ $ ->
 
 	$(".out-of-the-office").on "dblclick", ".card", ->
 		dclicked=$(this)
-		console.log(dclicked.attr('id'), '   ', dclicked.parents().eq(0).attr('id'), '   ', dclicked.children().eq(2).attr('id'))
+		if moment().weekday() > 4
+			return_day=moment().startOf('week').hour(8).add('days',9).format()
+		else
+			return_day=moment().startOf('day').hour(8).add('days',1).format()
 		if dclicked.hasClass('employee-not-working')
 			dclicked.removeClass "employee-not-working"
 			dclicked.addClass "employee-working"
@@ -17,9 +20,8 @@ $ ->
 			working=false
 			dclicked.removeClass "employee-working"
 			dclicked.addClass "employee-not-working"
-			working_html="<i class='fa fa-clock-o'></i> " + moment().startOf('day').hour(8).add('days',1).fromNow()
+			working_html="<i class='fa fa-clock-o'></i> " + moment(return_day).fromNow()
 		employee_id=dclicked.attr('id').replace /employee_/, ""
-		return_day=moment().startOf('day').hour(8).add('days',1).format()
 		$.ajax '/statuses.json',
 			type: 'POST'
 			dataType: 'json'
@@ -28,7 +30,6 @@ $ ->
 				# console.log(jqXHR, status, err)
 			success: (data, status, jqXHR) ->
 				# console.log(data, status, jqXHR)
-				console.log(dclicked.attr('id'))
 				dclicked.children().eq(2).html(working_html)
 				# console.log($('.sortable').html(data))
 
@@ -51,6 +52,10 @@ $ ->
 			# $(".sortable").sortable("refresh")
 			
 		receive: (e,ui) ->
+			if moment().weekday() > 4
+				return_day=moment().startOf('week').hour(8).add('days',9).format()
+			else
+				return_day=moment().startOf('day').hour(8).add('days',1).format()
 			if $(this).attr('id') == 'in_office'
 				in_office=true 
 				working=true
@@ -62,12 +67,9 @@ $ ->
 				working=false
 				ui.item.removeClass "employee-working"
 				ui.item.addClass "employee-not-working"
-				working_html="<i class='fa fa-clock-o'></i> " + moment().startOf('day').hour(8).add('days',1).fromNow()
+				working_html="<i class='fa fa-clock-o'></i> " + moment(return_day).fromNow()
 			employee_id=ui.item.attr('id').replace /employee_/, ""
 			office_id=ui.item.parents().eq(2).attr('id').replace /office_/, ""
-			return_day=moment().startOf('day').hour(8).add('days',1).format()
-			# console.log(ui.item.children().eq(2).attr('class'))
-			# console.log('In ' + in_office, 'On ' + working, 'Emp ' + employee_id, 'Ofc ' + office_id, 'Retn ' + return_day) 
 			$.ajax '/statuses.json',
 				type: 'POST'
 				dataType: 'json'
