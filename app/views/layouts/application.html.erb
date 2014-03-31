@@ -14,7 +14,7 @@
   </script>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
+   <span id="forkongithub"><a href="https://github.com/warmbowski/in_out_board">Fork me on GitHub</a></span>	<nav class="navbar navbar-default" role="navigation">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -31,8 +31,8 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 			 <li><a href="/">Home</a></li>
-	        <li><a href="offices">Offices</a></li>
-	        <li><a href="employees">Employees</a></li>
+	        <!-- <li><a href="offices">Offices</a></li>
+	        <li><a href="employees">Employees</a></li> -->
 	        <!-- <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
@@ -73,6 +73,10 @@
 		<%= render :partial => "layouts/messages", :locals => {:flash => flash} %>
 		<div class="span10"><%= yield %></div>
 		<div class="span2"  align="right">
+			<br/>
+			<br/>
+			<br/>
+			<br/>
 			<h1><i class="bglogocircle fa fa-rocket" align="center"></i> Star Board</h1>
 			<br/>
 			<%= render :partial => "layouts/signedinas" %>
