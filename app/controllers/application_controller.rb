@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:accept_invitation).concat [:first_name, :last_name, :default_office_id]
     # Override accepted parameters
     devise_parameter_sanitizer.for(:accept_invitation) do |u|
-      u.permit(:first_name, :last_name, :default_office_id, :password, :password_confirmation, :invitation_token)
+      u.permit(:first_name, :last_name, :title, :default_office_id, :password, :password_confirmation, :invitation_token)
     end
     
     devise_parameter_sanitizer.for(:sign_up) do |u| 
