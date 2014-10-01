@@ -15,6 +15,7 @@ Double click people who are out to toggle them between working and and not worki
   
 
 
+=== Setup
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
