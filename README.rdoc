@@ -4,9 +4,10 @@
 This is a web based status board for keeping track of when people are in or out 
 of the 'office' and to get an idea of when they are returning. Here is an example 
 of the application in action:   
-# http://aqueous-garden-2789.herokuapp.com/  
-#
-#login: schrute@dunder-mifflin.io/whatever 
+
+http://aqueous-garden-2789.herokuapp.com/  
+
+login: schrute@dunder-mifflin.io/whatever 
 
 === Basic Use
 Drag and drop people to move them in or out of the office or between office locations. 
