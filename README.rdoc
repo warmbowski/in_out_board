@@ -7,7 +7,8 @@ of the application in action:
 
 http://aqueous-garden-2789.herokuapp.com/  
 
-login: schrute@dunder-mifflin.io/whatever 
+login: schrute@dunder-mifflin.io
+pass: whatever 
 
 === Basic Use
 Drag and drop people to move them in or out of the office or between office locations. 
